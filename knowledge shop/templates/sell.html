@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+  <h1 style="text-align: center">Enter the details of the book and your contact.</h1>
+
+
+    <form class="row g-3 needs-validation" method="post" action="/sell">
+        {% csrf_token %}
+        <div class="col-md-6">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="money" class="form-label">Expected money</label>
+            <div class="input-group has-validation">
+                <span class="input-group-text" id="inputGroupPrepend">Money</span>
+                <input type="number" class="form-control" name="money" id="money" aria-describedby="inputGroupPrepend" required>
+                <div class="invalid-feedback">
+                    Please enter an amount.
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="bookname" class="form-label">BookName</label>
+            <input type="text" class="form-control" id="bookname" name="bookname" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <label for="phone" class="form-label">PHONE N.O</label>
+            <input type="number" class="form-control" name="phone" id="phone" required>
+            <div class="invalid-feedback">
+                Please provide a valid phone number.
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="year" class="form-label">USED YEARS</label>
+            <input type="number" class="form-control" id="usedyears" name="usedyears" required>
+
+            <div class="invalid-feedback">
+                Please provide a valid number of years.
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                    You must agree before submitting.
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <h3 class="text-center" style="color:#a5cf4e;">TAXES WILL BE IMPOSED AND CONDITION OF BOOK WILL BE CHECKED BEFORE THE TRANSACTION </h3>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
